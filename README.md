@@ -1,3 +1,6 @@
+# Olaparib Resistance Analysis
+A project by Sean Fan 08/06/25
+
 Abstract:
 
 Acquired resistance to chemotherapy is a major clinical challenge in treating glioblastoma. This project aimed to identify genes associated with resistance to the drug Olaparib by analyzing the public gene expression dataset GSE295766. A bioinformatics procedure was developed in Python to perform a differential expression analysis between drug-sensitive and drug-resistant cell lines. The analysis identified 263 significantly upregulated and 403 significantly downregulated genes (Log2 Fold Change > |1| and p-value < 0.05). The response was notably asymmetric, with upregulated genes showing greater magnitudes of change and higher statistical significance. Subsequent pathway enrichment analysis did not find any significant functional pathways, suggesting a complex, multi-faceted mechanism of resistance driven primarily by gene activation.
@@ -45,3 +48,10 @@ To understand the biological context of these changes, a pathway enrichment anal
 
 Discussion and Conclusion
 To conclude, we have successfully identified hundreds of genes whose expression is significantly altered in Olaparib-resistant glioblastoma cells. The key finding, visualized in the volcano plot, is the asymmetric nature of the genetic response. Although more genes were downregulated, the upregulated genes showed a greater average magnitude of change and higher statistical significance. This suggests that the primary mechanism for acquiring resistance in this model is the strong, active upregulation of pro-survival pathways. The candidate gene tables provide a focused list for future research. Genes like ENSG00000123983 (upregulated) and ENSG00000172935 (downregulated) represent the most robust changes and are prime targets for experimental validation. Interestingly, the lack of enrichment in any single biological pathway suggests that the resistance mechanism is complex and multifactorial. Rather than hijacking one "master" pathway, the cancer cells appear to make many coordinated changes across a diverse range of cellular functions to collectively achieve a drug-resistant state. Thus, this computational analysis provides a valuable list of candidate genes and reveals a complex, activation-dominant mechanism of drug resistance in this glioblastoma model.
+
+Source: The gene expression data used in this project was obtained from the NCBI Gene Expression Omnibus (GEO) under the accession number [GSE295766](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295766)
+
+## Reproducing the Analysis
+1. Clone this repository.
+2. Ensure you have the required libraries by running: `pip install -r requirements.txt`
+3. Open and run the `Glioblastoma_Analysis.ipynb` notebook in a Jupyter environment.
