@@ -93,4 +93,26 @@ Final Conclusion:
 
 The biological analysis reinforces the overall conclusion. The drug-specific changes—activating growth receptors in one case versus silencing growth inhibitors in another, help highlight the different strategies cancer cells use to survive. This is a critical insight, as it implies that therapies designed to reverse drug resistance may need to be tailored to the specific chemotherapy regimen a patient has received. The lists of specific genes generated in this study provide a valuable starting point for future laboratory research to validate these candidates and explore their precise roles in drug resistance.
 
-Sources: 
+Data Source:
+
+The gene expression data used in this project was obtained from the NCBI Gene Expression Omnibus (GEO) and includes two separate datasets:
+
+Olaparib Resistance Study: GSE295766
+
+Temozolomide (TMZ) Resistance Study: GSE100736
+
+Reproducing the Analysis:
+
+This project consists of two separate analyses. To reproduce the findings, please follow these steps:
+
+Clone the Repository: Download all files from this GitHub repository to a local folder.
+
+Install Libraries: Ensure you have the required libraries by running the following command in your terminal:
+
+pip install -r requirements.txt
+
+Run the Notebooks: Open and run the Jupyter Notebooks in the following order:
+
+Glioblastoma_Analysis.ipynb: This notebook performs the initial analysis on the Olaparib dataset (GSE295766).
+
+Comparative_Analysis_TMZ.ipynb: This notebook performs the analysis on the Temozolomide dataset (GSE100736) and compares the results to the first study.
