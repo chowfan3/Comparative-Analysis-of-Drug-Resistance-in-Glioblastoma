@@ -47,7 +47,8 @@ Table 1: Top 10 most upregulated genes in Olaparib-resistant cells. Key candidat
 <img width="2996" height="636" alt="top_10_upregulated_genes" src="https://github.com/user-attachments/assets/49d5eadf-0a29-4590-a52d-acb8e6dfd90e" />
 
 Table 2: Top 10 most downregulated genes in Olaparib-resistant cells. The top candidate is ENSG00000165507, with a large and statistically significant fold change (-6.60).
-<img width="4524" height="753" alt="top_10_upregulated_tmz" src="https://github.com/user-attachments/assets/750642e6-042d-4dc9-b15b-d9bf32905f02" />
+<img width="2996" height="636" alt="top_10_downregulated_genes" src="https://github.com/user-attachments/assets/d54ec284-26a9-4d84-99c8-0724ad311a50" />
+
 
 A closer look at the top 10 most changed genes (Table 1 & 2) reveals this asymmetry in detail. Of the top 10 most upregulated genes by fold change, three are statistically significant. The strongest candidates are ENSG00000123983 (a ~95-fold increase) and ENSG00000105835 (a ~68-fold increase), both with strong p-values (<0.02). In contrast, of the 10 most downregulated genes, only one is statistically significant: ENSG00000165507, with an almost 99-fold decrease in expression. This reinforces that the primary response to Olaparib is the activation of specific genes.
 
@@ -58,8 +59,8 @@ Figure 2:
 <img width="2983" height="2343" alt="volcano_plot_tmz" src="https://github.com/user-attachments/assets/aa43c7c8-3e20-423a-a7dd-a749f8a22689" />
 Volcano plot visualizing gene expression changes in response to TMZ.
 
-Table 3: Top 10 most downregulated genes in Olaparib-resistant cells.
-<img width="2996" height="636" alt="top_10_downregulated_genes" src="https://github.com/user-attachments/assets/8fef9135-53b4-4cba-8d4c-ffe5b6ffd097" />
+Table 3: Top 10 most upregulated genes in Olaparib-resistant cells.
+<img width="4524" height="753" alt="top_10_upregulated_tmz" src="https://github.com/user-attachments/assets/db799e78-7c5a-4c69-8554-815ca4d4c1f4" />
 
 Table 4: Top 10 most downregulated genes in TMZ-resistant cells.
 <img width="4524" height="753" alt="top_10_downregulated_tmz" src="https://github.com/user-attachments/assets/a6c1189c-6ba8-400d-bd40-bc4ac54ad47e" />
