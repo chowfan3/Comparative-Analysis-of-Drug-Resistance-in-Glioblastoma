@@ -44,7 +44,7 @@ Table 1:
 The top 10 most upregulated genes, ranked by Log2 Fold Change. Of this list, the top statistically significant candidate is ENSG00000123983, with a large fold change (6.58) and a strong p-value (0.02).
 
 Table 2: 
-<img width="1880" height="482" alt="top_10_upregulated_tmz" src="https://github.com/user-attachments/assets/2b087c58-5163-4bcc-9c81-ef8fd9cac530" />
+<img width="4524" height="753" alt="top_10_upregulated_tmz" src="https://github.com/user-attachments/assets/492b1e66-2623-4032-bc76-e3f896de3aaf" />
 Top 10 most upregulated genes in TMZ-resistant cells. This list is dominated by different genes, such as IL6 and CXCL8, known for their roles in inflammation. There is no overlap between the top genes in Table 1 and Table 2.
 
 Table 3: 
@@ -52,7 +52,7 @@ Table 3:
 Top 10 most downregulated genes in Olaparib-resistant cells. The top candidate is ENSG00000165507, with a large and statistically significant fold change (-6.60).
 
 Table 4:
-<img width="1880" height="482" alt="top_10_downregulated_tmz" src="https://github.com/user-attachments/assets/87a7cb63-d828-4ad6-aa94-db9eed961b91" />
+<img width="4524" height="753" alt="top_10_downregulated_tmz" src="https://github.com/user-attachments/assets/26254690-7d6a-45c1-a4d3-cbdcb5501aae" />
 Top 10 most downregulated genes in TMZ-resistant cells. Again, a completely different set of genes is present, such as NPY1R and SSTR1. There is no overlap between the top genes in Table 3 and Table 4.
 
 Discussion and Conclusion
