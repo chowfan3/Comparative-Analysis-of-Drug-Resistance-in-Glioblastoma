@@ -20,14 +20,36 @@ GSE100736: Temozolomide (TMZ)-resistant vs. sensitive U251 glioblastoma cells.
 
 For each dataset, a pipeline in a Jupyter Notebook using Python, pandas, and SciPy was executed to clean the data, calculate the Log2 Fold Change (Log2FC) and p-values for each gene, and identify significantly changed genes (defined as Log2FC > |1| and p-value < 0.05). The resulting gene lists were then compared.
 
-Results:
+Statistical Analysis:
+
+To identify genes with significant expression changes, two key metrics were calculated for each gene:
+
+Log2 Fold Change (Log2FC): This metric measures the magnitude and direction of the change in gene expression. A Log2FC of +1 means the gene's expression doubled, while -1 means it was cut in half.
+
+P-value: This metric measures the statistical confidence in the observed change. A low p-value (less than 0.05) indicates that the difference is unlikely to be due to random variation.
+
+A gene was defined as "significantly" changed only if it passed both thresholds, ensuring that our candidate genes have changes that are both large and statistically reliable.
+
+Results and Analysis:
 
 Study 1: Olaparib Resistance Analysis
-The analysis of the Olaparib dataset identified 263 significantly upregulated and 403 significantly downregulated genes. The volcano plot (Figure 1) visually confirms this result, showing a distinct population of red (upregulated) and blue (downregulated) dots that have crossed the significance thresholds. The response appears asymmetric, with the upregulated genes generally showing a greater magnitude of change (further from the center) and higher statistical significance (higher on the y-axis) than the downregulated genes. The top candidate genes from this analysis are shown in Tables 1 and 2.
+The analysis of the Olaparib dataset identified 263 significantly upregulated and 403 significantly downregulated genes. The volcano plot (Figure 1) visually confirms this result, showing a distinct population of red (upregulated) and blue (downregulated) dots that have crossed the significance thresholds. The response appears asymmetric, with the upregulated genes generally showing a greater magnitude of change and higher statistical significance than the downregulated genes.
 
 Figure 1: 
 <img width="2960" height="2343" alt="volcano_plot" src="https://github.com/user-attachments/assets/e5da23d6-3206-491b-984c-ad01266cc9be" />
 Volcano plot visualizing gene expression changes in response to Olaparib.
+
+Candidate Gene Analysis:
+
+A direct comparison of the top 10 candidate genes from each study highlights the drug-specific nature of the response.
+
+Table 1: Top 10 most upregulated genes in Olaparib-resistant cells. Key candidates include ENSG00000123983 and ENSG00000105835, which show large, statistically significant fold changes.
+<img width="2996" height="636" alt="top_10_upregulated_genes" src="https://github.com/user-attachments/assets/49d5eadf-0a29-4590-a52d-acb8e6dfd90e" />
+
+Table 2: Top 10 most downregulated genes in Olaparib-resistant cells. The top candidate is ENSG00000165507, with a large and statistically significant fold change (-6.60).
+<img width="4524" height="753" alt="top_10_upregulated_tmz" src="https://github.com/user-attachments/assets/750642e6-042d-4dc9-b15b-d9bf32905f02" />
+
+A closer look at the top 10 most changed genes (Table 1 & 2) reveals this asymmetry in detail. Of the top 10 most upregulated genes by fold change, three are statistically significant. The strongest candidates are ENSG00000123983 (a ~95-fold increase) and ENSG00000105835 (a ~68-fold increase), both with strong p-values (<0.02). In contrast, of the 10 most downregulated genes, only one is statistically significant: ENSG00000165507, with an almost 99-fold decrease in expression. This reinforces that the primary response to Olaparib is the activation of specific genes.
 
 Study 2: Temozolomide (TMZ) Resistance Analysis
 The analysis of the TMZ dataset revealed a much broader and more dramatic genetic response, with 3185 significantly upregulated and 7287 significantly downregulated genes. The volcano plot (Figure 2) illustrates this massive shift in the cell's genetic programming, with a dense cloud of both red and blue dots far exceeding the significance thresholds. Unlike the Olaparib study, the response to TMZ appears more symmetrical, with a large number of genes being both activated and silenced.
@@ -36,21 +58,13 @@ Figure 2:
 <img width="2983" height="2343" alt="volcano_plot_tmz" src="https://github.com/user-attachments/assets/aa43c7c8-3e20-423a-a7dd-a749f8a22689" />
 Volcano plot visualizing gene expression changes in response to TMZ.
 
-Candidate Gene Analysis:
-
-A direct comparison of the top 10 candidate genes from each study highlights the drug-specific nature of the response.
-
-Table 1: Top 10 most upregulated genes in Olaparib-resistant cells.
-<img width="2996" height="636" alt="top_10_upregulated_genes" src="https://github.com/user-attachments/assets/49d5eadf-0a29-4590-a52d-acb8e6dfd90e" />
-
-Table 2: Top 10 most upregulated genes in TMZ-resistant cells.
-<img width="4524" height="753" alt="top_10_upregulated_tmz" src="https://github.com/user-attachments/assets/750642e6-042d-4dc9-b15b-d9bf32905f02" />
-
 Table 3: Top 10 most downregulated genes in Olaparib-resistant cells.
 <img width="2996" height="636" alt="top_10_downregulated_genes" src="https://github.com/user-attachments/assets/8fef9135-53b4-4cba-8d4c-ffe5b6ffd097" />
 
 Table 4: Top 10 most downregulated genes in TMZ-resistant cells.
 <img width="4524" height="753" alt="top_10_downregulated_tmz" src="https://github.com/user-attachments/assets/a6c1189c-6ba8-400d-bd40-bc4ac54ad47e" />
+
+The tables of top candidate genes (Table 3 & 4) show changes of a much greater magnitude than in the Olaparib study. All 10 of the most upregulated genes are highly statistically significant, with the top candidate, PH_hs_0036800, showing an incredible 16,000-fold increase in expression. Similarly, 9 of the 10 most downregulated genes are statistically significant, with the top candidate, PH_hs_0000096, showing a nearly 2,000-fold decrease. This indicates that TMZ resistance involves a massive and statistically robust alteration of the cell's genetic program.
 
 Discussion and Conclusion:
 
