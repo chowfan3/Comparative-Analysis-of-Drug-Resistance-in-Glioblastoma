@@ -3,32 +3,37 @@ A project by Sean Fan 08/06/25
 
 Abstract:
 
-Acquired resistance to chemotherapy is a major clinical challenge in treating glioblastoma. This project aimed to identify genes associated with resistance to the drug Olaparib by analyzing the public gene expression dataset GSE295766. A bioinformatics procedure was developed in Python to perform a differential expression analysis between drug-sensitive and drug-resistant cell lines. The analysis identified 263 significantly upregulated and 403 significantly downregulated genes (Log2 Fold Change > |1| and p-value < 0.05). The response was notably asymmetric, with upregulated genes showing greater magnitudes of change and higher statistical significance. Subsequent pathway enrichment analysis did not find any significant functional pathways, suggesting a complex, multi-faceted mechanism of resistance driven primarily by gene activation.
+Acquired resistance to chemotherapy is a major clinical challenge in treating glioblastoma. This project aimed to identify and compare genes associated with resistance to two different drugs, Olaparib and Temozolomide (TMZ), by analyzing two public gene expression datasets (GSE295766 and GSE100736). A bioinformatics pipeline in Python was used to perform a differential expression analysis for each study. The Olaparib study revealed 263 significantly upregulated and 403 significantly downregulated genes. The TMZ study showed a much broader response, with 3185 upregulated and 7287 downregulated genes. A direct comparison of the top candidate genes and the full significant lists revealed zero overlapping upregulated genes and a similarly negligible overlap in downregulated genes, leading to the conclusion that the genetic mechanisms of resistance are highly specific to the therapeutic agent used.
 
 Introduction:
 
-Glioblastoma is an aggressive form of brain cancer with poor patient outcomes that is mainly due to the development of therapeutic resistance. A standard treatment involves chemotherapy, but cancer cells often adapt and survive, rendering drugs like Olaparib ineffective. Understanding the genetic changes that allow cancer cells to overcome treatment is critical for designing more effective therapies. Here we investigated the molecular changes behind this phenomenon by analyzing a publicly available dataset (NCBI GEO: GSE295766) to answer the question: Which genes and biological pathways are associated with acquired Olaparib resistance in glioblastoma cells?
+Glioblastoma is an aggressive form of brain cancer with poor patient outcomes, largely due to therapeutic resistance. Drugs like Olaparib and Temozolomide (TMZ) are used in treatment, but cancer cells often adapt and survive. Understanding the genetic changes that drive resistance is critical for designing better therapies. This study investigates this phenomenon by analyzing two public datasets to answer the question: Are there common genes or pathways that drive resistance to different chemotherapy drugs in glioblastoma?
 
 Methods:
 
-Our analysis was conducted in a Jupyter Notebook using Python. The following procedure was executed:
+A comparative analysis was conducted using two datasets from the NCBI Gene Expression Omnibus:
 
-Data Acquisition and Cleaning: The dataset GSE295766_All.FPKM.xls was loaded into a pandas DataFrame. All expression value (FPKM) columns were systematically cleaned by converting them to a numeric data type and replacing any non-numeric entries with zero.
+GSE295766: Olaparib-resistant vs. sensitive U87 glioblastoma cells.
 
-Differential Expression Analysis: Replicate samples for the control (drug-sensitive) and resistant conditions were first averaged. To focus on active genes, genes with an average FPKM value of less than 1 in both conditions were filtered out.
+GSE100736: Temozolomide (TMZ)-resistant vs. sensitive U251 glioblastoma cells.
 
-Statistical Analysis: An independent two-sided t-test was performed for each gene to compare the control and resistant replicate groups, generating a p-value to measure statistical significance. The Log2 Fold Change (Log2FC) was calculated to measure the magnitude and direction of the expression change.
-
-Pathway Enrichment Analysis: The list of significantly upregulated gene symbols was analyzed for functional enrichment using the gseapy Python library against the KEGG and Gene Ontology (GO) databases.
+For each dataset, a pipeline in a Jupyter Notebook using Python, pandas, and SciPy was executed to clean the data, calculate the Log2 Fold Change (Log2FC) and p-values for each gene, and identify significantly changed genes (defined as Log2FC > |1| and p-value < 0.05). The resulting gene lists were then compared.
 
 Results:
 
-Visualization of Differential Gene Expression
-The relationship between expression change (Log2 Fold Change) and statistical significance (-Log10 P-value) for all expressed genes is visualized in the volcano plot (Figure 1). The plot reveals a highly asymmetric response to drug resistance. A distinct population of 263 significantly upregulated genes (red points) is visible in the top-right quadrant. In contrast, while 403 genes were significantly downregulated (blue points), they are clustered closer to the significance thresholds, indicating that the upregulation response was more pronounced in both magnitude and statistical significance.
+Study 1: Olaparib Resistance
+The analysis of the Olaparib dataset identified 263 significantly upregulated and 403 significantly downregulated genes. The genetic response was asymmetric, with the upregulated genes showing a greater magnitude of change.
 
 Figure 1: 
 <img width="2960" height="2343" alt="volcano_plot" src="https://github.com/user-attachments/assets/723d1d79-9e45-438d-ae77-aa7293ae7199" />
-Volcano plot visualizing gene expression changes. Red points represent genes with statistically significant upregulation, and blue points represent genes with statistically significant downregulation.
+Volcano plot visualizing gene expression changes in response to Olaparib.
+
+Study 2: Temozolomide (TMZ) Resistance
+The analysis of the TMZ dataset revealed a much broader and more dramatic genetic response, with 3185 significantly upregulated and 7287 significantly downregulated genes.
+
+FIgure 2:
+<img width="2983" height="2343" alt="volcano_plot_tmz" src="https://github.com/user-attachments/assets/d36bd017-ef65-417b-91ac-1e0e97184d1f" />
+Volcano plot visualizing gene expression changes in response to TMZ.
 
 Candidate Gene Analysis:
 
@@ -39,20 +44,33 @@ Table 1:
 The top 10 most upregulated genes, ranked by Log2 Fold Change. Of this list, the top statistically significant candidate is ENSG00000123983, with a large fold change (6.58) and a strong p-value (0.02).
 
 Table 2: 
-<img width="2996" height="636" alt="top_10_downregulated_genes" src="https://github.com/user-attachments/assets/18272c49-d918-41d5-969e-d99d0d86ef72" />
-Table 2: The top 10 most downregulated genes, ranked by Log2 Fold Change. The top hit, ENSG00000165507, is statistically significant with a fold change of -6.60 and a p-value of 0.03.
+<img width="1880" height="482" alt="top_10_upregulated_tmz" src="https://github.com/user-attachments/assets/2b087c58-5163-4bcc-9c81-ef8fd9cac530" />
+Top 10 most upregulated genes in TMZ-resistant cells. This list is dominated by different genes, such as IL6 and CXCL8, known for their roles in inflammation. There is no overlap between the top genes in Table 1 and Table 2.
 
+Table 3: 
+<img width="2996" height="636" alt="top_10_downregulated_genes" src="https://github.com/user-attachments/assets/756a4fd6-6a58-48f9-9571-442659a48c36" />
+Top 10 most downregulated genes in Olaparib-resistant cells. The top candidate is ENSG00000165507, with a large and statistically significant fold change (-6.60).
 
-Pathway Analysis Results:
-
-To understand the biological context of these changes, a pathway enrichment analysis was performed on the lists of up and down-regulated genes. This analysis against the KEGG and Gene Ontology databases returned no statistically significant pathways after correction for multiple testing.
+Table 4:
+<img width="1880" height="482" alt="top_10_downregulated_tmz" src="https://github.com/user-attachments/assets/87a7cb63-d828-4ad6-aa94-db9eed961b91" />
+Top 10 most downregulated genes in TMZ-resistant cells. Again, a completely different set of genes is present, such as NPY1R and SSTR1. There is no overlap between the top genes in Table 3 and Table 4.
 
 Discussion and Conclusion
-To conclude, we have successfully identified hundreds of genes whose expression is significantly altered in Olaparib-resistant glioblastoma cells. The key finding, visualized in the volcano plot, is the asymmetric nature of the genetic response. Although more genes were downregulated, the upregulated genes showed a greater average magnitude of change and higher statistical significance. This suggests that the primary mechanism for acquiring resistance in this model is the strong, active upregulation of pro-survival pathways. The candidate gene tables provide a focused list for future research. Genes like ENSG00000123983 (upregulated) and ENSG00000172935 (downregulated) represent the most robust changes and are prime targets for experimental validation. Interestingly, the lack of enrichment in any single biological pathway suggests that the resistance mechanism is complex and multifactorial. Rather than hijacking one "master" pathway, the cancer cells appear to make many coordinated changes across a diverse range of cellular functions to collectively achieve a drug-resistant state. Thus, this computational analysis provides a valuable list of candidate genes and reveals a complex, activation-dominant mechanism of drug resistance in this glioblastoma model.
+This project successfully identified thousands of candidate genes involved in drug resistance across two different glioblastoma models. The key finding from both the volcano plots and the detailed analysis of the candidate gene tables is that the genetic mechanisms of chemotherapy resistance appear to be highly specific to the drug used.
 
-Source: The gene expression data used in this project was obtained from the NCBI Gene Expression Omnibus (GEO) under the accession number [GSE295766](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295766)
+The complete lack of overlapping genes in the top 10 up- and down-regulated lists is a powerful piece of evidence. It demonstrates that the cancer cells are not activating a single, universal resistance program. Instead, they deploy distinct and specialized genetic strategies to counter different therapeutic attacks. For example, Olaparib resistance is associated with genes like ENSG00000123983, while TMZ resistance involves inflammatory genes like IL6.
+
+This is a critical insight, as it implies that therapies designed to reverse drug resistance may need to be tailored to the specific chemotherapy regimen a patient has received, as a "one-size-fits-all" approach is unlikely to be effective. The lists of specific genes generated in this study provide a valuable starting point for future laboratory research to validate these candidates and explore their precise roles in enabling cancer cells to survive treatment.
+
+Source: The gene expression data used in this project was obtained from the NCBI Gene Expression Omnibus (GEO) and includes two separate datasets:
+
+Olaparib Resistance Study: GSE295766 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295766) 
+
+Temozolomide (TMZ) Resistance Study: GSE100736 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE100736)
 
 ## Reproducing the Analysis
 1. Clone this repository.
 2. Ensure you have the required libraries by running: `pip install -r requirements.txt`
-3. Open and run the `Glioblastoma_Analysis.ipynb` notebook in a Jupyter environment.
+3. Open and run the Run the Notebooks:
+   -  Glioblastoma_Analysis.ipynb: This notebook performs the initial analysis on the Olaparib dataset (GSE295766).
+   -  Comparative_Analysis_TMZ.ipynb: This notebook performs the analysis on the Temozolomide dataset (GSE100736) and compares the results to the first study.
