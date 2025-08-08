@@ -1,10 +1,10 @@
-# Genomic Analysis of Olaparib and TMZ Resistance in Cancer
+# Gene Expression Analysis of Olaparib and TMZ Resistance in Cancer
 A project by Sean Fan 08/06/25
 
 
 Abstract:
 
-Acquired resistance to chemotherapy is a major clinical challenge in treating glioblastoma. This project aimed to identify and compare genes associated with resistance to two different drugs, Olaparib and Temozolomide (TMZ), by analyzing two public gene expression datasets (GSE295766 and GSE100736). A bioinformatics procedure in Python was used to perform a differential expression analysis for each study. The Olaparib study revealed 263 significantly upregulated and 403 significantly downregulated genes. The TMZ study showed a much broader response, with 3185 upregulated and 7287 downregulated genes. A direct comparison of the top candidate genes and the full significant lists revealed zero overlapping upregulated genes, leading to the conclusion that the genetic mechanisms of resistance are highly specific to the therapeutic agent used.
+Acquired resistance to chemotherapy is a major clinical challenge in treating glioblastoma. This project aimed to identify and compare genes associated with resistance to two different drugs, Olaparib and Temozolomide (TMZ), by analyzing two public gene expression datasets (GSE295766 and GSE100736). A bioinformatics procedure in Python was used to perform a differential expression analysis for each study. The Olaparib study revealed 263 significantly upregulated and 403 significantly downregulated genes. The TMZ study showed a much broader response, with 3185 upregulated and 7287 downregulated genes. A direct comparison of the top candidate genes and the full significant lists revealed zero overlapping upregulated genes, leading to the suggestion that the genetic mechanisms of resistance are highly specific to the therapeutic agent used.
 
 Introduction:
 
