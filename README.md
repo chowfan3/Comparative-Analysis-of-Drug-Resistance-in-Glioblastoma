@@ -1,4 +1,4 @@
-# Olaparib Resistance Analysis
+# Genomic Analysis of Olaparib and TMZ Resistance in Cancer
 A project by Sean Fan 08/06/25
 
 
