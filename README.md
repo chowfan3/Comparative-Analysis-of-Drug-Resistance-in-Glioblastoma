@@ -40,7 +40,8 @@ The top 10 most upregulated genes, ranked by Log2 Fold Change. Of this list, the
 
 Table 2: 
 <img width="2996" height="636" alt="top_10_downregulated_genes" src="https://github.com/user-attachments/assets/18272c49-d918-41d5-969e-d99d0d86ef72" />
-The top 10 most downregulated genes, ranked by Log2 Fold Change. The top statistically significant candidate in this list is ENSG00000172935, with a fold change of -1.68 and a p-value of 0.00002.
+Table 2: The top 10 most downregulated genes, ranked by Log2 Fold Change. The top hit, ENSG00000165507, is statistically significant with a fold change of -6.60 and a p-value of 0.03.
+
 
 Pathway Analysis Results:
 
